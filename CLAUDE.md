@@ -32,6 +32,21 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 - Every `number` answer gets an independent check in `books/<book>/checks.mjs` (brute force or simulation); the build fails on mismatch.
 - Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Add new ones only when a technique really recurs (e.g. linearity of expectation, conditioning, first-step analysis, martingales, reflection principle).
 
+## Status (2026-10-24)
+
+- **Done:** the full app (Today, Browse, flashcard decks, study pages, retest builder, notes, settings + Gist sync, offline service worker) and **Chapter 2: all 38 cards**, 13 widgets, 15 verified numeric answers. Tested at phone/laptop widths, light/dark, offline.
+- **Pending on Hitesh:** repo Settings → Pages → Source = GitHub Actions, then run the "Deploy site" workflow. Live URL: https://hiteshp119.github.io/PracticeQuestions/
+- **Open question:** Hitesh uploaded the book PDF to `books/greenbook/` himself (public). Leave it unless he asks; removing it fully needs a history rewrite.
+- **Next:** Chapter 3 (Calculus and Linear Algebra, 24 cards, book pp. 33–58), then 4, 5, 6, 7 in order, one chapter per batch, Hitesh reviews after each.
+
+## How to write the next chapter
+
+1. Get the scanned text (git-ignored, never commit it): either download `source/greenbook_ocr.txt` from the claude.ai project into `source/greenbook/book_ocr.txt`, or regenerate it: `brew install poppler tesseract` then `tools/ocr.sh "books/greenbook/A Practical Guide to Quant Interviews.pdf" source/greenbook` (~20 min).
+2. List the chapter's problems: `awk -F, '$2==3' books/greenbook/inventory.csv`. Read the OCR pages for the chapter (pages are marked `=== p-NNN.txt`; PDF page = book page + 16). OCR garbles equations: read the PDF page image when the math matters.
+3. Write one card per inventory row in `books/greenbook/questions/` following the card format above; re-derive every solution rather than trusting the book; add a `checks.mjs` entry for every numeric answer; add widgets in `src/widgets/` (register in `src/widgets/index.tsx`) where a simulation or visual genuinely helps.
+4. `npm run build` (builds content, verifies answers, type-checks, bundles), `npm run preview`, check phone width (390px) and dark mode, then commit and push to `main` (deploys automatically).
+5. If a section's title in `inventory.csv` is wrong (e.g. an untitled extra problem under a heading, like 2.24 Glass balls), fix the title/page there too.
+
 ## Backlog (agreed for later)
 
 A technique page + technique filter in retest; formula answers beyond numbers already supported; time/accuracy stats and weakest-topic retest; export/import backup; follow-up variants per card; section primers; formula deck (Ch 4–6); "Load my PDF" local book-page viewer; own questions; calibration; Python runner for Ch 7.
