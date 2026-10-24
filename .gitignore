@@ -1,0 +1,9 @@
+# Book scans and OCR output stay private (never commit book text to this public repo)
+*.pdf
+source/
+ocr/
+# build
+node_modules/
+dist/
+.astro/
+.DS_Store

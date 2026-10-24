@@ -1,0 +1,185 @@
+id,chapter,section,section_title,title,part,book_page,type
+2.01,2,2.1,Problem Simplification,Screwy pirates,,3,problem
+2.02,2,2.1,Problem Simplification,Tiger and sheep,,4,problem
+2.03,2,2.2,Logic Reasoning,River crossing,,5,problem
+2.04,2,2.2,Logic Reasoning,Birthday problem,,6,problem
+2.05,2,2.2,Logic Reasoning,Card game,,6,problem
+2.06,2,2.2,Logic Reasoning,Burning ropes,,7,problem
+2.07,2,2.2,Logic Reasoning,Defective ball,,7,problem
+2.08,2,2.2,Logic Reasoning,Trailing zeros,,9,problem
+2.09,2,2.2,Logic Reasoning,Horse race,,9,problem
+2.10,2,2.2,Logic Reasoning,Infinite sequence,,10,problem
+2.11,2,2.3,Thinking Out of the Box,Box packing,,10,problem
+2.12,2,2.3,Thinking Out of the Box,Calendar cubes,,12,problem
+2.13,2,2.3,Thinking Out of the Box,Door to offer,,12,problem
+2.14,2,2.3,Thinking Out of the Box,Message delivery,,13,problem
+2.15,2,2.3,Thinking Out of the Box,Last ball,,14,problem
+2.16,2,2.3,Thinking Out of the Box,Light switches,,14,problem
+2.17,2,2.3,Thinking Out of the Box,Quant salary,,15,problem
+2.18,2,2.4,Application of Symmetry,Coin piles,,15,problem
+2.19,2,2.4,Application of Symmetry,Mislabeled bags,,16,problem
+2.20,2,2.4,Application of Symmetry,Wise men,,17,problem
+2.21,2,2.5,Series Summation,Clock pieces,,18,problem
+2.22,2,2.5,Series Summation,Missing integers,,19,problem
+2.23,2,2.5,Series Summation,Counterfeit coins I,1,19,problem
+2.24,2,2.5,Series Summation,Counterfeit coins I,2,20,problem
+2.25,2,2.6,The Pigeon Hole Principle,Matching socks,,21,problem
+2.26,2,2.6,The Pigeon Hole Principle,Handshakes,,21,problem
+2.27,2,2.6,The Pigeon Hole Principle,Have we met before?,,21,problem
+2.28,2,2.6,The Pigeon Hole Principle,Ants on a square,,22,problem
+2.29,2,2.6,The Pigeon Hole Principle,Counterfeit coins II,,22,problem
+2.30,2,2.7,Modular Arithmetic,Prisoner problem,1,24,problem
+2.31,2,2.7,Modular Arithmetic,Prisoner problem,2,24,problem
+2.32,2,2.7,Modular Arithmetic,Division by 9,,25,problem
+2.33,2,2.7,Modular Arithmetic,Chameleon colors,,26,problem
+2.34,2,2.8,Math Induction,Coin split problem,,28,problem
+2.35,2,2.8,Math Induction,Chocolate bar problem,,29,problem
+2.36,2,2.8,Math Induction,Race track,,30,problem
+2.37,2,2.9,Proof by Contradiction,Irrational number,,31,problem
+2.38,2,2.9,Proof by Contradiction,Rainbow hats,,32,problem
+3.01,3,3.1,Limits and Derivatives,Basics of derivatives,,34,problem
+3.02,3,3.1,Limits and Derivatives,Maximum and minimum,,35,problem
+3.03,3,3.1,Limits and Derivatives,L'Hospital's rule,,36,problem
+3.04,3,3.2,Integration,Basics of integration,1,37,problem
+3.05,3,3.2,Integration,Basics of integration,B,37,problem
+3.06,3,3.2,Integration,Applications of integration,1,38,problem
+3.07,3,3.2,Integration,Applications of integration,B,39,problem
+3.08,3,3.2,Integration,Expected value using integration,,40,problem
+3.09,3,3.3,Partial Derivatives and Multiple Integrals,Partial Derivatives and Multiple Integrals,,41,problem
+3.10,3,3.4,Important Calculus Methods,Taylor's series,1,42,problem
+3.11,3,3.4,Important Calculus Methods,Taylor's series,B,43,problem
+3.12,3,3.4,Important Calculus Methods,Newton's method,1,44,problem
+3.13,3,3.4,Important Calculus Methods,Newton's method,B,45,problem
+3.14,3,3.4,Important Calculus Methods,Lagrange multipliers,,46,problem
+3.15,3,3.5,Ordinary Differential Equations,Separable differential equations,1,47,problem
+3.16,3,3.5,Ordinary Differential Equations,Separable differential equations,B,47,problem
+3.17,3,3.5,Ordinary Differential Equations,First-order linear differential equations,,48,problem
+3.18,3,3.5,Ordinary Differential Equations,Homogeneous linear equations,,49,problem
+3.19,3,3.5,Ordinary Differential Equations,Nonhomogeneous linear equations,,50,problem
+3.20,3,3.6,Linear Algebra,Vectors,,51,problem
+3.21,3,3.6,Linear Algebra,QR decomposition,,52,problem
+3.22,3,3.6,Linear Algebra,"Determinant, eigenvalue and eigenvector",,55,problem
+3.23,3,3.6,Linear Algebra,Positive semidefinite/definite matrix,,56,problem
+3.24,3,3.6,Linear Algebra,LU decomposition and Cholesky decomposition,,57,problem
+4.01,4,4.1,Basic Probability Definitions and Set Operations,Coin toss game,,61,problem
+4.02,4,4.1,Basic Probability Definitions and Set Operations,Card game,,62,problem
+4.03,4,4.1,Basic Probability Definitions and Set Operations,Drunk passenger,,62,problem
+4.04,4,4.1,Basic Probability Definitions and Set Operations,N points on a circle,,63,problem
+4.05,4,4.2,Combinatorial Analysis,Poker hands,,66,problem
+4.06,4,4.2,Combinatorial Analysis,Hopping rabbit,,67,problem
+4.07,4,4.2,Combinatorial Analysis,Screwy pirates 2,,67,problem
+4.08,4,4.2,Combinatorial Analysis,Chess tournament,,68,problem
+4.09,4,4.2,Combinatorial Analysis,Application letters,,70,problem
+4.10,4,4.2,Combinatorial Analysis,Birthday problem,,71,problem
+4.11,4,4.2,Combinatorial Analysis,100th digit,,71,problem
+4.12,4,4.2,Combinatorial Analysis,Cubic of integer,,72,problem
+4.13,4,4.3,Conditional Probability and Bayes' Formula,Boys and girls,1,73,problem
+4.14,4,4.3,Conditional Probability and Bayes' Formula,Boys and girls,2,74,problem
+4.15,4,4.3,Conditional Probability and Bayes' Formula,All-girl world?,,74,problem
+4.16,4,4.3,Conditional Probability and Bayes' Formula,Unfair coin,,74,problem
+4.17,4,4.3,Conditional Probability and Bayes' Formula,Fair probability from an unfair coin,,75,problem
+4.18,4,4.3,Conditional Probability and Bayes' Formula,Dart game,,75,problem
+4.19,4,4.3,Conditional Probability and Bayes' Formula,Birthday line,,77,problem
+4.20,4,4.3,Conditional Probability and Bayes' Formula,Dice order,,78,problem
+4.21,4,4.3,Conditional Probability and Bayes' Formula,Monty Hall problem,,78,problem
+4.22,4,4.3,Conditional Probability and Bayes' Formula,Amoeba population,,79,problem
+4.23,4,4.3,Conditional Probability and Bayes' Formula,Candies in a jar,,79,problem
+4.24,4,4.3,Conditional Probability and Bayes' Formula,Coin toss game,,80,problem
+4.25,4,4.3,Conditional Probability and Bayes' Formula,Russian roulette series,1,81,problem
+4.26,4,4.3,Conditional Probability and Bayes' Formula,Russian roulette series,2,81,problem
+4.27,4,4.3,Conditional Probability and Bayes' Formula,Russian roulette series,3,82,problem
+4.28,4,4.3,Conditional Probability and Bayes' Formula,Russian roulette series,4,82,problem
+4.29,4,4.3,Conditional Probability and Bayes' Formula,Aces,,82,problem
+4.30,4,4.3,Conditional Probability and Bayes' Formula,Gambler's ruin problem,,83,problem
+4.31,4,4.3,Conditional Probability and Bayes' Formula,Basketball scores,,84,problem
+4.32,4,4.3,Conditional Probability and Bayes' Formula,Cars on road,,85,problem
+4.33,4,4.4,Discrete and Continuous Distributions,Meeting probability,,88,problem
+4.34,4,4.4,Discrete and Continuous Distributions,Probability of triangle,,89,problem
+4.35,4,4.4,Discrete and Continuous Distributions,Property of Poisson process,,90,problem
+4.36,4,4.4,Discrete and Continuous Distributions,Moments of normal distribution,,91,problem
+4.37,4,4.5,"Expected Value, Variance & Covariance",Connecting noodles,,93,problem
+4.38,4,4.5,"Expected Value, Variance & Covariance",Optimal hedge ratio,,94,problem
+4.39,4,4.5,"Expected Value, Variance & Covariance",Dice game,,94,problem
+4.40,4,4.5,"Expected Value, Variance & Covariance",Card game,,95,problem
+4.41,4,4.5,"Expected Value, Variance & Covariance",Sum of random variables,,96,problem
+4.42,4,4.5,"Expected Value, Variance & Covariance",Coupon collection,,97,problem
+4.43,4,4.5,"Expected Value, Variance & Covariance",Joint default probability,,98,problem
+4.44,4,4.6,Order Statistics,Expected value of max and min,,99,problem
+4.45,4,4.6,Order Statistics,Correlation of max and min,,100,problem
+4.46,4,4.6,Order Statistics,Random ants,,102,problem
+5.01,5,5.1,Markov Chain,Gambler's ruin problem,,107,problem
+5.02,5,5.1,Markov Chain,Dice question,,108,problem
+5.03,5,5.1,Markov Chain,Coin triplets,1,109,problem
+5.04,5,5.1,Markov Chain,Coin triplets,2,111,problem
+5.05,5,5.1,Markov Chain,Coin triplets,3,112,problem
+5.06,5,5.1,Markov Chain,Color balls,,113,problem
+5.07,5,5.2,Martingale and Random Walk,Drunk man,,116,problem
+5.08,5,5.2,Martingale and Random Walk,Dice game,,117,problem
+5.09,5,5.2,Martingale and Random Walk,Ticket line,,118,problem
+5.10,5,5.2,Martingale and Random Walk,Coin sequence,,119,problem
+5.11,5,5.3,Dynamic Programming,Dynamic programming (DP) algorithm,,122,concept
+5.12,5,5.3,Dynamic Programming,Dice game,,123,problem
+5.13,5,5.3,Dynamic Programming,World series,,123,problem
+5.14,5,5.3,Dynamic Programming,Dynamic dice game,,126,problem
+5.15,5,5.3,Dynamic Programming,Dynamic card game,,127,problem
+5.16,5,5.4,Brownian Motion and Stochastic Calculus,Brownian motion,A,129,problem
+5.17,5,5.4,Brownian Motion and Stochastic Calculus,Brownian motion,B,130,problem
+5.18,5,5.4,Brownian Motion and Stochastic Calculus,Brownian motion,C,130,problem
+5.19,5,5.4,Brownian Motion and Stochastic Calculus,Stopping time/ first passage time,A,131,problem
+5.20,5,5.4,Brownian Motion and Stochastic Calculus,Stopping time/ first passage time,B,132,problem
+5.21,5,5.4,Brownian Motion and Stochastic Calculus,Stopping time/ first passage time,C,133,problem
+5.22,5,5.4,Brownian Motion and Stochastic Calculus,Stopping time/ first passage time,D,134,problem
+5.23,5,5.4,Brownian Motion and Stochastic Calculus,Ito's lemma,1,135,problem
+5.24,5,5.4,Brownian Motion and Stochastic Calculus,Ito's lemma,B,136,problem
+6.01,6,6.1,Option Pricing,Price direction of options,,137,problem
+6.02,6,6.1,Option Pricing,Put-call parity,,139,problem
+6.03,6,6.1,Option Pricing,American v.s. European options,1,139,problem
+6.04,6,6.1,Option Pricing,American v.s. European options,B,142,problem
+6.05,6,6.1,Option Pricing,Black-Scholes-Merton differential equation,,142,problem
+6.06,6,6.1,Option Pricing,Black-Scholes formula,1,144,problem
+6.07,6,6.1,Option Pricing,Black-Scholes formula,B,144,problem
+6.08,6,6.1,Option Pricing,Black-Scholes formula,C,146,problem
+6.09,6,6.1,Option Pricing,Black-Scholes formula,D,147,problem
+6.10,6,6.1,Option Pricing,Black-Scholes formula,E,149,problem
+6.11,6,6.2,The Greeks,Delta,1,149,problem
+6.12,6,6.2,The Greeks,Delta,B,150,problem
+6.13,6,6.2,The Greeks,Delta,C,151,problem
+6.14,6,6.2,The Greeks,Delta,D,152,problem
+6.15,6,6.2,The Greeks,Gamma,,153,problem
+6.16,6,6.2,The Greeks,Theta,1,155,problem
+6.17,6,6.2,The Greeks,Theta,B,156,problem
+6.18,6,6.2,The Greeks,Vega,1,157,problem
+6.19,6,6.2,The Greeks,Vega,B,157,problem
+6.20,6,6.2,The Greeks,Vega,C,158,problem
+6.21,6,6.3,Option Portfolios and Exotic Options,Bull spread,,159,problem
+6.22,6,6.3,Option Portfolios and Exotic Options,Straddle,,159,problem
+6.23,6,6.3,Option Portfolios and Exotic Options,Binary options,,160,problem
+6.24,6,6.3,Option Portfolios and Exotic Options,Exchange options,,161,problem
+6.25,6,6.4,Other Finance Questions,Portfolio optimization,,163,problem
+6.26,6,6.4,Other Finance Questions,Value at risk,,164,problem
+6.27,6,6.4,Other Finance Questions,Duration and convexity,,166,problem
+6.28,6,6.4,Other Finance Questions,Forward and futures,,167,problem
+6.29,6,6.4,Other Finance Questions,Interest rate models,,168,problem
+7.01,7,7.1,Algorithms,Number swap,,172,problem
+7.02,7,7.1,Algorithms,Unique elements,,173,problem
+7.03,7,7.1,Algorithms,Horner's algorithm,,174,problem
+7.04,7,7.1,Algorithms,Moving average,,174,problem
+7.05,7,7.1,Algorithms,Sorting algorithm,,174,problem
+7.06,7,7.1,Algorithms,Random permutation,1,176,problem
+7.07,7,7.1,Algorithms,Random permutation,B,177,problem
+7.08,7,7.1,Algorithms,Search algorithm,1,177,problem
+7.09,7,7.1,Algorithms,Search algorithm,B,178,problem
+7.10,7,7.1,Algorithms,Search algorithm,C,178,problem
+7.11,7,7.1,Algorithms,Fibonacci numbers,,179,problem
+7.12,7,7.1,Algorithms,Maximum contiguous subarray,,180,problem
+7.13,7,7.2,The Power of Two,Power of 2?,,182,problem
+7.14,7,7.2,The Power of Two,Multiplication by 7,,182,problem
+7.15,7,7.2,The Power of Two,Probability simulation,,183,problem
+7.16,7,7.2,The Power of Two,Poisonous wine,,183,problem
+7.17,7,7.3,Numerical Methods,Monte Carlo simulation,1,184,problem
+7.18,7,7.3,Numerical Methods,Monte Carlo simulation,B,185,problem
+7.19,7,7.3,Numerical Methods,Monte Carlo simulation,C,186,problem
+7.20,7,7.3,Numerical Methods,Monte Carlo simulation,D,188,problem
+7.21,7,7.3,Numerical Methods,Monte Carlo simulation,E,188,problem
+7.22,7,7.3,Numerical Methods,Finite difference method,1,189,problem
+7.23,7,7.3,Numerical Methods,Finite difference method,B,191,problem

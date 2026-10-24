@@ -1,0 +1,824 @@
+{
+ "title": "A Practical Guide to Quantitative Finance Interviews",
+ "author": "Xinfeng Zhou",
+ "edition": "1st",
+ "pdf_page_offset": 16,
+ "chapters": {
+  "2": "Brain Teasers",
+  "3": "Calculus and Linear Algebra",
+  "4": "Probability Theory",
+  "5": "Stochastic Process and Stochastic Calculus",
+  "6": "Finance",
+  "7": "Algorithms and Numerical Methods"
+ },
+ "sections": [
+  {
+   "chapter": 2,
+   "number": "2.1",
+   "title": "Problem Simplification",
+   "items": [
+    {
+     "title": "Screwy pirates",
+     "page": 3
+    },
+    {
+     "title": "Tiger and sheep",
+     "page": 4
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.2",
+   "title": "Logic Reasoning",
+   "items": [
+    {
+     "title": "River crossing",
+     "page": 5
+    },
+    {
+     "title": "Birthday problem",
+     "page": 5
+    },
+    {
+     "title": "Card game",
+     "page": 6
+    },
+    {
+     "title": "Burning ropes",
+     "page": 7
+    },
+    {
+     "title": "Defective ball",
+     "page": 7
+    },
+    {
+     "title": "Trailing zeros",
+     "page": 9
+    },
+    {
+     "title": "Horse race",
+     "page": 9
+    },
+    {
+     "title": "Infinite sequence",
+     "page": 10
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.3",
+   "title": "Thinking Out of the Box",
+   "items": [
+    {
+     "title": "Box packing",
+     "page": 10
+    },
+    {
+     "title": "Calendar cubes",
+     "page": 11
+    },
+    {
+     "title": "Door to offer",
+     "page": 12
+    },
+    {
+     "title": "Message delivery",
+     "page": 13
+    },
+    {
+     "title": "Last ball",
+     "page": 13
+    },
+    {
+     "title": "Light switches",
+     "page": 14
+    },
+    {
+     "title": "Quant salary",
+     "page": 15
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.4",
+   "title": "Application of Symmetry",
+   "items": [
+    {
+     "title": "Coin piles",
+     "page": 15
+    },
+    {
+     "title": "Mislabeled bags",
+     "page": 16
+    },
+    {
+     "title": "Wise men",
+     "page": 17
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.5",
+   "title": "Series Summation",
+   "items": [
+    {
+     "title": "Clock pieces",
+     "page": 18
+    },
+    {
+     "title": "Missing integers",
+     "page": 18
+    },
+    {
+     "title": "Counterfeit coins I",
+     "page": 19
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.6",
+   "title": "The Pigeon Hole Principle",
+   "items": [
+    {
+     "title": "Matching socks",
+     "page": 21
+    },
+    {
+     "title": "Handshakes",
+     "page": 21
+    },
+    {
+     "title": "Have we met before?",
+     "page": 21
+    },
+    {
+     "title": "Ants on a square",
+     "page": 22
+    },
+    {
+     "title": "Counterfeit coins II",
+     "page": 22
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.7",
+   "title": "Modular Arithmetic",
+   "items": [
+    {
+     "title": "Prisoner problem",
+     "page": 24
+    },
+    {
+     "title": "Division by 9",
+     "page": 25
+    },
+    {
+     "title": "Chameleon colors",
+     "page": 26
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.8",
+   "title": "Math Induction",
+   "items": [
+    {
+     "title": "Coin split problem",
+     "page": 27
+    },
+    {
+     "title": "Chocolate bar problem",
+     "page": 28
+    },
+    {
+     "title": "Race track",
+     "page": 29
+    }
+   ]
+  },
+  {
+   "chapter": 2,
+   "number": "2.9",
+   "title": "Proof by Contradiction",
+   "items": [
+    {
+     "title": "Irrational number",
+     "page": 31
+    },
+    {
+     "title": "Rainbow hats",
+     "page": 31
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.1",
+   "title": "Limits and Derivatives",
+   "items": [
+    {
+     "title": "Basics of derivatives",
+     "page": 33
+    },
+    {
+     "title": "Maximum and minimum",
+     "page": 34
+    },
+    {
+     "title": "L'Hospital's rule",
+     "page": 35
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.2",
+   "title": "Integration",
+   "items": [
+    {
+     "title": "Basics of integration",
+     "page": 36
+    },
+    {
+     "title": "Applications of integration",
+     "page": 38
+    },
+    {
+     "title": "Expected value using integration",
+     "page": 40
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.3",
+   "title": "Partial Derivatives and Multiple Integrals",
+   "items": [
+    {
+     "title": "Partial Derivatives and Multiple Integrals",
+     "page": 40
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.4",
+   "title": "Important Calculus Methods",
+   "items": [
+    {
+     "title": "Taylor's series",
+     "page": 41
+    },
+    {
+     "title": "Newton's method",
+     "page": 44
+    },
+    {
+     "title": "Lagrange multipliers",
+     "page": 45
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.5",
+   "title": "Ordinary Differential Equations",
+   "items": [
+    {
+     "title": "Separable differential equations",
+     "page": 47
+    },
+    {
+     "title": "First-order linear differential equations",
+     "page": 47
+    },
+    {
+     "title": "Homogeneous linear equations",
+     "page": 48
+    },
+    {
+     "title": "Nonhomogeneous linear equations",
+     "page": 49
+    }
+   ]
+  },
+  {
+   "chapter": 3,
+   "number": "3.6",
+   "title": "Linear Algebra",
+   "items": [
+    {
+     "title": "Vectors",
+     "page": 50
+    },
+    {
+     "title": "QR decomposition",
+     "page": 52
+    },
+    {
+     "title": "Determinant, eigenvalue and eigenvector",
+     "page": 53
+    },
+    {
+     "title": "Positive semidefinite/definite matrix",
+     "page": 56
+    },
+    {
+     "title": "LU decomposition and Cholesky decomposition",
+     "page": 57
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.1",
+   "title": "Basic Probability Definitions and Set Operations",
+   "items": [
+    {
+     "title": "Coin toss game",
+     "page": 61
+    },
+    {
+     "title": "Card game",
+     "page": 61
+    },
+    {
+     "title": "Drunk passenger",
+     "page": 62
+    },
+    {
+     "title": "N points on a circle",
+     "page": 63
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.2",
+   "title": "Combinatorial Analysis",
+   "items": [
+    {
+     "title": "Poker hands",
+     "page": 65
+    },
+    {
+     "title": "Hopping rabbit",
+     "page": 66
+    },
+    {
+     "title": "Screwy pirates 2",
+     "page": 67
+    },
+    {
+     "title": "Chess tournament",
+     "page": 68
+    },
+    {
+     "title": "Application letters",
+     "page": 69
+    },
+    {
+     "title": "Birthday problem",
+     "page": 71
+    },
+    {
+     "title": "100th digit",
+     "page": 71
+    },
+    {
+     "title": "Cubic of integer",
+     "page": 72
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.3",
+   "title": "Conditional Probability and Bayes' Formula",
+   "items": [
+    {
+     "title": "Boys and girls",
+     "page": 73
+    },
+    {
+     "title": "All-girl world?",
+     "page": 74
+    },
+    {
+     "title": "Unfair coin",
+     "page": 74
+    },
+    {
+     "title": "Fair probability from an unfair coin",
+     "page": 75
+    },
+    {
+     "title": "Dart game",
+     "page": 75
+    },
+    {
+     "title": "Birthday line",
+     "page": 76
+    },
+    {
+     "title": "Dice order",
+     "page": 78
+    },
+    {
+     "title": "Monty Hall problem",
+     "page": 78
+    },
+    {
+     "title": "Amoeba population",
+     "page": 79
+    },
+    {
+     "title": "Candies in a jar",
+     "page": 79
+    },
+    {
+     "title": "Coin toss game",
+     "page": 80
+    },
+    {
+     "title": "Russian roulette series",
+     "page": 81
+    },
+    {
+     "title": "Aces",
+     "page": 82
+    },
+    {
+     "title": "Gambler's ruin problem",
+     "page": 83
+    },
+    {
+     "title": "Basketball scores",
+     "page": 84
+    },
+    {
+     "title": "Cars on road",
+     "page": 85
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.4",
+   "title": "Discrete and Continuous Distributions",
+   "items": [
+    {
+     "title": "Meeting probability",
+     "page": 88
+    },
+    {
+     "title": "Probability of triangle",
+     "page": 89
+    },
+    {
+     "title": "Property of Poisson process",
+     "page": 90
+    },
+    {
+     "title": "Moments of normal distribution",
+     "page": 91
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.5",
+   "title": "Expected Value, Variance & Covariance",
+   "items": [
+    {
+     "title": "Connecting noodles",
+     "page": 93
+    },
+    {
+     "title": "Optimal hedge ratio",
+     "page": 94
+    },
+    {
+     "title": "Dice game",
+     "page": 94
+    },
+    {
+     "title": "Card game",
+     "page": 95
+    },
+    {
+     "title": "Sum of random variables",
+     "page": 95
+    },
+    {
+     "title": "Coupon collection",
+     "page": 97
+    },
+    {
+     "title": "Joint default probability",
+     "page": 98
+    }
+   ]
+  },
+  {
+   "chapter": 4,
+   "number": "4.6",
+   "title": "Order Statistics",
+   "items": [
+    {
+     "title": "Expected value of max and min",
+     "page": 99
+    },
+    {
+     "title": "Correlation of max and min",
+     "page": 100
+    },
+    {
+     "title": "Random ants",
+     "page": 102
+    }
+   ]
+  },
+  {
+   "chapter": 5,
+   "number": "5.1",
+   "title": "Markov Chain",
+   "items": [
+    {
+     "title": "Gambler's ruin problem",
+     "page": 107
+    },
+    {
+     "title": "Dice question",
+     "page": 108
+    },
+    {
+     "title": "Coin triplets",
+     "page": 109
+    },
+    {
+     "title": "Color balls",
+     "page": 113
+    }
+   ]
+  },
+  {
+   "chapter": 5,
+   "number": "5.2",
+   "title": "Martingale and Random Walk",
+   "items": [
+    {
+     "title": "Drunk man",
+     "page": 116
+    },
+    {
+     "title": "Dice game",
+     "page": 117
+    },
+    {
+     "title": "Ticket line",
+     "page": 117
+    },
+    {
+     "title": "Coin sequence",
+     "page": 119
+    }
+   ]
+  },
+  {
+   "chapter": 5,
+   "number": "5.3",
+   "title": "Dynamic Programming",
+   "items": [
+    {
+     "title": "Dynamic programming (DP) algorithm",
+     "page": 122
+    },
+    {
+     "title": "Dice game",
+     "page": 123
+    },
+    {
+     "title": "World series",
+     "page": 123
+    },
+    {
+     "title": "Dynamic dice game",
+     "page": 126
+    },
+    {
+     "title": "Dynamic card game",
+     "page": 127
+    }
+   ]
+  },
+  {
+   "chapter": 5,
+   "number": "5.4",
+   "title": "Brownian Motion and Stochastic Calculus",
+   "items": [
+    {
+     "title": "Brownian motion",
+     "page": 129
+    },
+    {
+     "title": "Stopping time/ first passage time",
+     "page": 131
+    },
+    {
+     "title": "Ito's lemma",
+     "page": 135
+    }
+   ]
+  },
+  {
+   "chapter": 6,
+   "number": "6.1",
+   "title": "Option Pricing",
+   "items": [
+    {
+     "title": "Price direction of options",
+     "page": 137
+    },
+    {
+     "title": "Put-call parity",
+     "page": 138
+    },
+    {
+     "title": "American v.s. European options",
+     "page": 139
+    },
+    {
+     "title": "Black-Scholes-Merton differential equation",
+     "page": 142
+    },
+    {
+     "title": "Black-Scholes formula",
+     "page": 143
+    }
+   ]
+  },
+  {
+   "chapter": 6,
+   "number": "6.2",
+   "title": "The Greeks",
+   "items": [
+    {
+     "title": "Delta",
+     "page": 149
+    },
+    {
+     "title": "Gamma",
+     "page": 152
+    },
+    {
+     "title": "Theta",
+     "page": 154
+    },
+    {
+     "title": "Vega",
+     "page": 156
+    }
+   ]
+  },
+  {
+   "chapter": 6,
+   "number": "6.3",
+   "title": "Option Portfolios and Exotic Options",
+   "items": [
+    {
+     "title": "Bull spread",
+     "page": 159
+    },
+    {
+     "title": "Straddle",
+     "page": 159
+    },
+    {
+     "title": "Binary options",
+     "page": 160
+    },
+    {
+     "title": "Exchange options",
+     "page": 161
+    }
+   ]
+  },
+  {
+   "chapter": 6,
+   "number": "6.4",
+   "title": "Other Finance Questions",
+   "items": [
+    {
+     "title": "Portfolio optimization",
+     "page": 163
+    },
+    {
+     "title": "Value at risk",
+     "page": 164
+    },
+    {
+     "title": "Duration and convexity",
+     "page": 165
+    },
+    {
+     "title": "Forward and futures",
+     "page": 167
+    },
+    {
+     "title": "Interest rate models",
+     "page": 168
+    }
+   ]
+  },
+  {
+   "chapter": 7,
+   "number": "7.1",
+   "title": "Algorithms",
+   "items": [
+    {
+     "title": "Number swap",
+     "page": 172
+    },
+    {
+     "title": "Unique elements",
+     "page": 173
+    },
+    {
+     "title": "Horner's algorithm",
+     "page": 174
+    },
+    {
+     "title": "Moving average",
+     "page": 174
+    },
+    {
+     "title": "Sorting algorithm",
+     "page": 174
+    },
+    {
+     "title": "Random permutation",
+     "page": 176
+    },
+    {
+     "title": "Search algorithm",
+     "page": 177
+    },
+    {
+     "title": "Fibonacci numbers",
+     "page": 179
+    },
+    {
+     "title": "Maximum contiguous subarray",
+     "page": 180
+    }
+   ]
+  },
+  {
+   "chapter": 7,
+   "number": "7.2",
+   "title": "The Power of Two",
+   "items": [
+    {
+     "title": "Power of 2?",
+     "page": 182
+    },
+    {
+     "title": "Multiplication by 7",
+     "page": 182
+    },
+    {
+     "title": "Probability simulation",
+     "page": 182
+    },
+    {
+     "title": "Poisonous wine",
+     "page": 183
+    }
+   ]
+  },
+  {
+   "chapter": 7,
+   "number": "7.3",
+   "title": "Numerical Methods",
+   "items": [
+    {
+     "title": "Monte Carlo simulation",
+     "page": 184
+    },
+    {
+     "title": "Finite difference method",
+     "page": 189
+    }
+   ]
+  }
+ ]
+}
