@@ -2,7 +2,7 @@ id,chapter,section,section_title,title,part,book_page,type
 2.01,2,2.1,Problem Simplification,Screwy pirates,,3,problem
 2.02,2,2.1,Problem Simplification,Tiger and sheep,,4,problem
 2.03,2,2.2,Logic Reasoning,River crossing,,5,problem
-2.04,2,2.2,Logic Reasoning,Birthday problem,,6,problem
+2.04,2,2.2,Logic Reasoning,Birthday problem,,5,problem
 2.05,2,2.2,Logic Reasoning,Card game,,6,problem
 2.06,2,2.2,Logic Reasoning,Burning ropes,,7,problem
 2.07,2,2.2,Logic Reasoning,Defective ball,,7,problem
@@ -10,33 +10,33 @@ id,chapter,section,section_title,title,part,book_page,type
 2.09,2,2.2,Logic Reasoning,Horse race,,9,problem
 2.10,2,2.2,Logic Reasoning,Infinite sequence,,10,problem
 2.11,2,2.3,Thinking Out of the Box,Box packing,,10,problem
-2.12,2,2.3,Thinking Out of the Box,Calendar cubes,,12,problem
+2.12,2,2.3,Thinking Out of the Box,Calendar cubes,,11,problem
 2.13,2,2.3,Thinking Out of the Box,Door to offer,,12,problem
 2.14,2,2.3,Thinking Out of the Box,Message delivery,,13,problem
-2.15,2,2.3,Thinking Out of the Box,Last ball,,14,problem
+2.15,2,2.3,Thinking Out of the Box,Last ball,,13,problem
 2.16,2,2.3,Thinking Out of the Box,Light switches,,14,problem
 2.17,2,2.3,Thinking Out of the Box,Quant salary,,15,problem
 2.18,2,2.4,Application of Symmetry,Coin piles,,15,problem
 2.19,2,2.4,Application of Symmetry,Mislabeled bags,,16,problem
 2.20,2,2.4,Application of Symmetry,Wise men,,17,problem
 2.21,2,2.5,Series Summation,Clock pieces,,18,problem
-2.22,2,2.5,Series Summation,Missing integers,,19,problem
-2.23,2,2.5,Series Summation,Counterfeit coins I,1,19,problem
-2.24,2,2.5,Series Summation,Counterfeit coins I,2,20,problem
+2.22,2,2.5,Series Summation,Missing integers,,18,problem
+2.23,2,2.5,Series Summation,Counterfeit coins I,,19,problem
+2.24,2,2.5,Series Summation,Glass balls,,19,problem
 2.25,2,2.6,The Pigeon Hole Principle,Matching socks,,21,problem
 2.26,2,2.6,The Pigeon Hole Principle,Handshakes,,21,problem
 2.27,2,2.6,The Pigeon Hole Principle,Have we met before?,,21,problem
 2.28,2,2.6,The Pigeon Hole Principle,Ants on a square,,22,problem
 2.29,2,2.6,The Pigeon Hole Principle,Counterfeit coins II,,22,problem
-2.30,2,2.7,Modular Arithmetic,Prisoner problem,1,24,problem
-2.31,2,2.7,Modular Arithmetic,Prisoner problem,2,24,problem
+2.30,2,2.7,Modular Arithmetic,Prisoner problem,,24,problem
+2.31,2,2.7,Modular Arithmetic,Prisoner problem: three colours,,24,problem
 2.32,2,2.7,Modular Arithmetic,Division by 9,,25,problem
 2.33,2,2.7,Modular Arithmetic,Chameleon colors,,26,problem
-2.34,2,2.8,Math Induction,Coin split problem,,28,problem
-2.35,2,2.8,Math Induction,Chocolate bar problem,,29,problem
-2.36,2,2.8,Math Induction,Race track,,30,problem
+2.34,2,2.8,Math Induction,Coin split problem,,27,problem
+2.35,2,2.8,Math Induction,Chocolate bar problem,,28,problem
+2.36,2,2.8,Math Induction,Race track,,29,problem
 2.37,2,2.9,Proof by Contradiction,Irrational number,,31,problem
-2.38,2,2.9,Proof by Contradiction,Rainbow hats,,32,problem
+2.38,2,2.9,Proof by Contradiction,Rainbow hats,,31,problem
 3.01,3,3.1,Limits and Derivatives,Basics of derivatives,,34,problem
 3.02,3,3.1,Limits and Derivatives,Maximum and minimum,,35,problem
 3.03,3,3.1,Limits and Derivatives,L'Hospital's rule,,36,problem

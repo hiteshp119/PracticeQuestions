@@ -23,3 +23,15 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 
 - `books/greenbook/toc.json` — contents with page numbers; PDF page = book page + 16.
 - `books/greenbook/inventory.csv` — 183 problems + 1 concept row (5.11).
+
+## Card format (books/<book>/questions/<id>-<slug>.md)
+
+- Frontmatter: `id`, `title`, `section`, `page` (book page where the problem starts), `difficulty` 1–3, `techniques` (use the shared vocabulary below), `teaser` (one line for Today), `hints` (2, progressive), `answer` {`type`: number|expr|text, `value`, `vars` for expr, `display`}, `key` (one-line key idea), optional `widget` {`type`, `props`}.
+- Body sections: `## Problem`, `## Solution` (numbered, equation-first), `## Intuition` (**Naive approach / Why it fails / The trick**, optional **Going further**). Note book errors as **Book note.**
+- Math: `$…$` inline, `$$…$$` display; a literal dollar is `\$`. Quote YAML strings that contain `: ` or start with a quote.
+- Every `number` answer gets an independent check in `books/<book>/checks.mjs` (brute force or simulation); the build fails on mismatch.
+- Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Add new ones only when a technique really recurs (e.g. linearity of expectation, conditioning, first-step analysis, martingales, reflection principle).
+
+## Backlog (agreed for later)
+
+A technique page + technique filter in retest; formula answers beyond numbers already supported; time/accuracy stats and weakest-topic retest; export/import backup; follow-up variants per card; section primers; formula deck (Ch 4–6); "Load my PDF" local book-page viewer; own questions; calibration; Python runner for Ch 7.
