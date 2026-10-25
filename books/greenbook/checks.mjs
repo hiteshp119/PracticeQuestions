@@ -9,6 +9,21 @@ const choose = (n, k) => { let r = 1; for (let i = 1; i <= k; i++) r = (r * (n -
 const perms = (a) => (a.length <= 1 ? [a] : a.flatMap((x, i) => perms([...a.slice(0, i), ...a.slice(i + 1)]).map((p) => [x, ...p])));
 // expected time / probability by iterating a fixed-point equation x -> f(x) until it stops moving
 const iterate = (f, x, n = 100000) => { for (let i = 0; i < n; i++) { const y = f(x); if (Math.abs(y - x) < 1e-15) return y; x = y; } return x; };
+// Gaussian elimination with partial pivoting: solve A x = b
+const solve = (A, b) => { const n = b.length, M = A.map((r, i) => [...r, b[i]]);
+  for (let c = 0; c < n; c++) { let p = c; for (let r = c + 1; r < n; r++) if (Math.abs(M[r][c]) > Math.abs(M[p][c])) p = r; [M[c], M[p]] = [M[p], M[c]];
+    for (let r = 0; r < n; r++) if (r !== c) { const f = M[r][c] / M[c][c]; if (f) for (let k = c; k <= n; k++) M[r][k] -= f * M[c][k]; } }
+  return M.map((r, i) => r[n] / r[i]); };
+// coin-pattern race: states = longest suffix of the history that is a prefix of some pattern; returns P(each pattern wins) and E[time]
+const patternRace = (pats) => {
+  const states = [...new Set(pats.flatMap((p) => [...Array(p.length).keys()].map((k) => p.slice(0, k))))];
+  const next = (s, c) => { const t = s + c; if (pats.includes(t)) return t; for (let k = 0; k <= t.length; k++) { const u = t.slice(k); if (states.includes(u)) return u; } return ''; };
+  const idx = new Map(states.map((s, i) => [s, i])), n = states.length;
+  const run = (val) => { const A = states.map((s, i) => states.map((_, j) => (i === j ? 1 : 0))), b = states.map(() => 0);
+    states.forEach((s, i) => { for (const c of 'HT') { const t = next(s, c); if (idx.has(t)) A[i][idx.get(t)] -= 0.5; else b[i] += 0.5 * val(t); } b[i] += val(null); });
+    return solve(A, b)[idx.get('')]; };
+  return { win: pats.map((p) => run((t) => (t === p ? 1 : 0))), time: run((t) => (t === null ? 1 : 0)) };
+};
 // symmetric 3x3 is PSD iff all principal minors are >= 0
 const psd3 = (m) => { const d = (i, j) => m[i][i] * m[j][j] - m[i][j] * m[j][i]; const det = m[0][0] * d(1, 2) - m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) + m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]); return m.every((r, i) => r[i] >= 0) && d(0, 1) >= -1e-12 && d(0, 2) >= -1e-12 && d(1, 2) >= -1e-12 && det >= -1e-12; };
 
@@ -235,5 +250,63 @@ export default {
     const N = n * n, my = sy / N, mz = sz / N; return (syz / N - my * mz) / Math.sqrt((syy / N - my * my) * (szz / N - mz * mz)); },
   '4.46': () => { // E[max of 500 uniforms] = ∫ (1 − x^500) dx, plus one collision simulation that all ants are gone by then
     return simpson((x) => 1 - x ** 500, 0, 1, 200000);
+  },
+
+  // ---- Chapter 5 ----
+  '5.01': () => solve([[1, -2 / 3], [-1 / 3, 1]], [0, 2 / 3])[0], // a1 = 2/3 a2, a2 = 1/3 a1 + 2/3
+  '5.02': () => { // brute: distribution of two-dice sums, then the two-state chain solved as a linear system
+    const P = new Array(13).fill(0); for (let a = 1; a <= 6; a++) for (let b = 1; b <= 6; b++) P[a + b] += 1 / 36;
+    const o = 1 - P[7] - P[12]; return solve([[1 - o, -P[7]], [-o, 1]], [P[12], P[12]])[0];
+  },
+  '5.03': () => { const t = patternRace(['HHH']).time, u = patternRace(['THH']).time; if (Math.abs(u - 8) > 1e-9) throw new Error(`THH ${u}`); return t; },
+  '5.04': () => patternRace(['HHH', 'THH']).win[0],
+  '5.05': () => { // player 1 minimizes player 2's best reply
+    const all = []; for (let m = 0; m < 8; m++) all.push([0, 1, 2].map((k) => ((m >> (2 - k)) & 1 ? 'T' : 'H')).join(''));
+    return Math.min(...all.map((a) => Math.max(...all.filter((b) => b !== a).map((b) => patternRace([a, b]).win[1]))));
+  },
+  '5.06': () => (env) => { // exact chain on colour-class partitions of n balls
+    const n = env.n, parts = []; const gen = (rest, max, cur) => { if (!rest) { parts.push(cur); return; } for (let k = Math.min(rest, max); k >= 1; k--) gen(rest - k, k, [...cur, k]); }; gen(n, n, []);
+    const key = (p) => p.join(','), idx = new Map(parts.map((p, i) => [key(p), i])), N = parts.length, tot = n * (n - 1);
+    const A = parts.map((_, i) => parts.map((_, j) => (i === j ? 1 : 0))), b = parts.map(() => 0);
+    parts.forEach((p, i) => { if (p.length === 1) return; b[i] = 1;
+      for (let x = 0; x < p.length; x++) for (let y = 0; y < p.length; y++) { if (x === y) { A[i][i] -= p[x] * (p[x] - 1) / tot; continue; }
+        const q = [...p]; q[x]--; q[y]++; const r = q.filter((v) => v > 0).sort((u, v) => v - u); A[i][idx.get(key(r))] -= p[x] * p[y] / tot; } });
+    return solve(A, b)[idx.get(key(Array(n).fill(1)))];
+  },
+  '5.07': () => { // linear systems on positions 1..99 of the bridge: hitting probability and expected steps, from 17
+    const n = 100, sys = (rhs, hi) => { const A = [], b = []; for (let i = 1; i < n; i++) { const row = new Array(n - 1).fill(0); row[i - 1] = 1; if (i > 1) row[i - 2] = -0.5; if (i < n - 1) row[i] = -0.5; A.push(row); b.push(rhs + (i === n - 1 ? 0.5 * hi : 0)); } return solve(A, b); };
+    const p = sys(0, 1)[16]; if (Math.abs(p - 0.17) > 1e-9) throw new Error(`p ${p}`);
+    return sys(1, 0)[16];
+  },
+  '5.08': () => iterate((e) => (1 + 2 + 3) / 6 + (4 + 5 + 6 + 3 * e) / 6, 0, 1e6),
+  '5.09': () => (env) => { // DP count of never-negative paths over all C(2n, n)
+    const n = env.n; let row = new Map([[0, 1]]); for (let s = 0; s < 2 * n; s++) { const nx = new Map(); for (const [h, c] of row) for (const d of [1, -1]) { const g = h + d; if (g >= 0) nx.set(g, (nx.get(g) || 0) + c); } row = nx; }
+    return (row.get(0) || 0) / choose(2 * n, n);
+  },
+  '5.10': () => (env) => patternRace(['H'.repeat(env.n)]).time,
+  '5.12': () => { let v = 3.5; for (let k = 0; k < 2; k++) { let s = 0; for (let x = 1; x <= 6; x++) s += Math.max(x, v) / 6; v = s; } return v; },
+  '5.13': () => { const f = (i, j) => (i === 4 ? 100 : j === 4 ? -100 : (f(i + 1, j) + f(i, j + 1)) / 2); return (f(1, 0) - f(0, 1)) / 2; },
+  '5.14': () => { const top = 300, V = []; for (let n = top; n >= 0; n--) { let c = 0; for (let k = 1; k <= 5; k++) c += (n + k > top ? n + k : V[n + k]) / 6; V[n] = Math.max(n, c); } return V[0]; },
+  '5.15': () => { const V = []; for (let b = 0; b <= 26; b++) { V[b] = []; for (let r = 0; r <= 26; r++) V[b][r] = r === 0 ? b : b === 0 ? 0 : Math.max(b - r, (b / (b + r)) * V[b - 1][r] + (r / (b + r)) * V[b][r - 1]); } return V[26][26]; },
+  '5.17': () => { const phi = (x) => Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI), m = (k) => simpson((x) => x ** k * phi(x), -12, 12); return (m(3) - m(1) * m(2)) / Math.sqrt((m(2) - m(1) ** 2) * (m(4) - m(2) ** 2)); },
+  '5.18': () => { // P(X > 0, X + Y < 0) for i.i.d. N(0,1): ∫_0^∞ φ(x) P(Y < −x) dx with the tail by Simpson
+    const phi = (x) => Math.exp(-x * x / 2) / Math.sqrt(2 * Math.PI), tail = (x) => simpson(phi, x, 12, 2000);
+    return simpson((x) => phi(x) * tail(x), 0, 12, 2000);
+  },
+  '5.19': () => { // E[T] = f(0) where ½f'' = −1 on (−1, 1), f(±1) = 0, by finite differences
+    const m = 400, h = 2 / m, A = [], b = []; for (let i = 1; i < m; i++) { const row = new Array(m - 1).fill(0); row[i - 1] = -2 / (h * h) * 0.5; if (i > 1) row[i - 2] = 0.5 / (h * h); if (i < m - 1) row[i] = 0.5 / (h * h); A.push(row); b.push(-1); }
+    return solve(A, b)[m / 2 - 1];
+  },
+  '5.21': () => { // fine-grid symmetric walk from 0 between −5 and 3; also checks the drift formula against the ODE ½P'' + mP' = 0
+    const m = 0.3, L = -5, U = 3, k = 800, h = (U - L) / k, A = [], b = [];
+    for (let i = 1; i < k; i++) { const row = new Array(k - 1).fill(0); row[i - 1] = -1 / (h * h); if (i > 1) row[i - 2] = 0.5 / (h * h) - m / (2 * h); if (i < k - 1) row[i] = 0.5 / (h * h) + m / (2 * h); A.push(row); b.push(i === k - 1 ? -(0.5 / (h * h) + m / (2 * h)) : 0); }
+    const P = solve(A, b)[Math.round(-L / h) - 1], want = (Math.exp(10 * m) - 1) / (Math.exp(10 * m) - Math.exp(-6 * m));
+    if (Math.abs(P - want) > 1e-4) throw new Error(`drift formula ${want} vs ODE ${P}`);
+    return (0 - L) / (U - L); // fair walk: P(hit U) = distance to L / width
+  },
+  '5.22': () => { // ½P'' + P' = 0 on (−1, 20), P(−1) = 1, P(20) = 0; tridiagonal sweep
+    const L = -1, U = 20, k = 42000, h = (U - L) / k, lo = 0.5 / (h * h) - 1 / (2 * h), di = -1 / (h * h), up = 0.5 / (h * h) + 1 / (2 * h);
+    const cp = [], dp = []; for (let i = 1; i < k; i++) { const rhs = i === 1 ? -lo * 1 : 0; const mm = di - (i > 1 ? lo * cp[i - 1] : 0); cp[i] = up / mm; dp[i] = (rhs - (i > 1 ? lo * dp[i - 1] : 0)) / mm; }
+    const x = []; x[k] = 0; for (let i = k - 1; i >= 1; i--) x[i] = dp[i] - cp[i] * (x[i + 1] ?? 0); return x[Math.round(-L / h)];
   },
 };
