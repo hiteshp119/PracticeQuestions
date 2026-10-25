@@ -12,6 +12,7 @@ import { Correlation, Eigen, Cholesky } from './linalg';
 import { MonteCarlo } from './montecarlo';
 import { Birthday, RandomWalk } from './probability';
 import { Penney, WorldSeries, CardGame, Brownian } from './stochastic';
+import { BlackScholes, Payoff, Frontier } from './finance';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const REGISTRY: Record<string, ComponentType<any>> = {
@@ -44,6 +45,9 @@ const REGISTRY: Record<string, ComponentType<any>> = {
   worldseries: WorldSeries,
   cardgame: CardGame,
   brownian: Brownian,
+  blackscholes: BlackScholes,
+  payoff: Payoff,
+  frontier: Frontier,
 };
 
 export function Widget({ spec }: { spec: { type: string; props?: Record<string, unknown> } }) {

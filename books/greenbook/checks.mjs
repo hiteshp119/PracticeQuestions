@@ -309,4 +309,23 @@ export default {
     const cp = [], dp = []; for (let i = 1; i < k; i++) { const rhs = i === 1 ? -lo * 1 : 0; const mm = di - (i > 1 ? lo * cp[i - 1] : 0); cp[i] = up / mm; dp[i] = (rhs - (i > 1 ? lo * dp[i - 1] : 0)) / mm; }
     const x = []; x[k] = 0; for (let i = k - 1; i >= 1; i--) x[i] = dp[i] - cp[i] * (x[i + 1] ?? 0); return x[Math.round(-L / h)];
   },
+
+  // ---- Chapter 6 ----
+  '6.09': () => (env) => { // recombining lattice with r = 0: up u, down 1/u, risk-neutral p; P(hit H = u^k before u^-m), solved as a linear system
+    const k = 20, m = 400, u = env.h ** (1 / k), d = 1 / u, p = (1 - d) / (u - d), n = k + m - 1; // states j = -m+1 .. k-1
+    const A = [], b = []; for (let i = 0; i < n; i++) { const row = new Array(n).fill(0); row[i] = 1; if (i + 1 < n) row[i + 1] = -p; if (i > 0) row[i - 1] = -(1 - p); A.push(row); b.push(i === n - 1 ? p : 0); }
+    return solve(A, b)[m - 1]; // state j = 0
+  },
+  '6.10': () => (env) => { const { s, r, sigma, t } = env; const ST = (e) => s * Math.exp((r - sigma * sigma / 2) * t + sigma * Math.sqrt(t) * e);
+    return Math.exp(-r * t) * simpson((e) => Math.exp(-e * e / 2) / Math.sqrt(2 * Math.PI) / ST(e), -14, 14, 40000); },
+  '6.14': () => { // exact Black–Scholes with r = 0 by integrating the payoff against the lognormal
+    const S = 100, K = 100, v = 0.2, T = 0.25, ST = (e) => S * Math.exp(-v * v / 2 * T + v * Math.sqrt(T) * e);
+    return simpson((e) => Math.max(ST(e) - K, 0) * Math.exp(-e * e / 2) / Math.sqrt(2 * Math.PI), -12, 12, 40000);
+  },
+  '6.25': () => { const v = (w) => 0.04 * w * w + 0.09 * (1 - w) ** 2 + 2 * 0.5 * 0.2 * 0.3 * w * (1 - w); let a = -2, b = 3; for (let i = 0; i < 300; i++) { const m1 = a + (b - a) * 0.382, m2 = a + (b - a) * 0.618; if (v(m1) < v(m2)) b = m2; else a = m1; } return (a + b) / 2; },
+  '6.27': () => { // price the inverse floater's own cash flows on a flat semiannual curve y (future floating rates = y, first coupon set at 7.5%), then −P'/P
+    const price = (y) => { let P = 0; for (let k = 1; k <= 10; k++) { const rate = k === 1 ? 0.075 : y; const cf = 100 * (0.30 - 3 * rate) / 2 + (k === 10 ? 100 : 0); P += cf / (1 + y / 2) ** k; } return P; };
+    const h = 1e-6, y = 0.075; if (Math.abs(price(y) - 100) > 1e-9) throw new Error(`price ${price(y)}`);
+    return -(price(y + h) - price(y - h)) / (2 * h) / price(y);
+  },
 };
