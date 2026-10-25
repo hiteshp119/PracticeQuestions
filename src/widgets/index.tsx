@@ -9,6 +9,8 @@ import { RiverCrossing } from './river';
 import { BalancedTernary } from './ternary';
 import { LnXOverX, Steinmetz, SnowPlow, EulerSeries, Bernoulli, RootFind } from './calculus';
 import { Correlation, Eigen, Cholesky } from './linalg';
+import { MonteCarlo } from './montecarlo';
+import { Birthday, RandomWalk } from './probability';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const REGISTRY: Record<string, ComponentType<any>> = {
@@ -34,6 +36,9 @@ const REGISTRY: Record<string, ComponentType<any>> = {
   correlation: Correlation,
   eigen: Eigen,
   cholesky: Cholesky,
+  montecarlo: MonteCarlo,
+  birthday: Birthday,
+  randomwalk: RandomWalk,
 };
 
 export function Widget({ spec }: { spec: { type: string; props?: Record<string, unknown> } }) {
