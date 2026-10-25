@@ -109,6 +109,7 @@ for (const bookId of fs.readdirSync(path.join(ROOT, 'books')).sort()) {
         type: ans.type || 'text',
         value: ans.value ?? null,
         vars: ans.vars || null,
+        points: ans.points || null,
         tol: ans.tol ?? null,
         display: renderMd(ans.display || '', `${where} answer`),
       },

@@ -15,7 +15,7 @@ export function AnswerBox({ q, id, onResult }: { q: QFull; id: string; onResult?
   if (q.answer.type === 'text') return null;
   const vars = q.answer.vars?.join(', ');
   const doCheck = () => {
-    const r = check(val, q.answer.type, q.answer.value, q.answer.vars, q.answer.tol);
+    const r = check(val, q.answer.type, q.answer.value, q.answer.vars, q.answer.tol, q.answer.points);
     setRes(r);
     if (r !== 'invalid') onResult?.(r === 'right');
   };
