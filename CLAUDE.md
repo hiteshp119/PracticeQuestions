@@ -5,7 +5,7 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 ## Decisions (agreed 2026-10-24)
 
 - **Hosting:** this public repo + GitHub Pages. May move to Cloudflare Pages later.
-- **Never commit book text.** No OCR output, scans or verbatim passages. Statements and solutions are rewritten in our own words with book page references. `source/` and `*.pdf` are git-ignored; the scanned text lives in the private claude.ai project (`source/greenbook_ocr.txt`). Add `noindex` to the site.
+- **Never commit book text** (exception: the Green Book's PDF and `book_ocr.txt`, kept at Hitesh's request). No OCR output, scans or verbatim passages in cards. Statements and solutions are rewritten in our own words with book page references. `source/` and `*.pdf` are git-ignored; the scanned text lives in the private claude.ai project (`source/greenbook_ocr.txt`). Add `noindex` to the site.
 - **Multi-book:** one app; each book is a folder in `books/<book>/`. Adding a book must not need app changes.
 - **UI:** clean and minimal; light/dark follows the phone setting. Flashcard-first (tap for hints, flip for answer, swipe or tap Again/Hard/Good/Easy), plus a full study page per question.
 - **Question page:** problem → attempt (hints, timer, answer box) → solution (step by step, equation-first) → intuition (naive approach → why it fails → key trick) → interactive tool where it helps → pattern links → optional personal notes → self-rating.
@@ -38,12 +38,12 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 - **Done:** the full app (Today, Browse, flashcard decks, study pages, retest builder, notes, settings + Gist sync, offline service worker), **Chapter 2: all 38 cards** (13 widgets) and **Chapter 3: all 24 cards** (9 more widgets in `src/widgets/calculus.tsx`, `linalg.tsx`; plot helpers in `plot.tsx`). 28 verified answers (25 numeric, 3 formula). Tested at phone/laptop widths, light/dark.
 - **Ch 3 book notes:** 3.08 (book's $E[X\mid X>0]$ forgets to divide by $P(X>0)$), 3.23 (leading-minor test is not enough for semidefinite), 3.01 (ambiguous notation).
 - **Pending on Hitesh:** repo Settings → Pages → Source = GitHub Actions, then run the "Deploy site" workflow. Live URL: https://hiteshp119.github.io/PracticeQuestions/
-- **Open question:** Hitesh uploaded the book PDF and the OCR text (`books/greenbook/book_ocr.txt`) to the public repo himself. Leave them unless he asks; removing them fully needs a history rewrite.
+- **Decided (2026-10-25):** the book PDF and the OCR text (`books/greenbook/book_ocr.txt`) stay in the repo for the Green Book, by Hitesh's choice. Don't flag or remove them; use `book_ocr.txt` as the source when writing chapters. Cards are still written in our own words.
 - **Next:** Chapter 4 (Probability Theory), then 5, 6, 7 in order, one chapter per batch, Hitesh reviews after each.
 
 ## How to write the next chapter
 
-1. Get the scanned text (git-ignored, never commit it): either download `source/greenbook_ocr.txt` from the claude.ai project into `source/greenbook/book_ocr.txt`, or regenerate it: `brew install poppler tesseract` then `tools/ocr.sh "books/greenbook/A Practical Guide to Quant Interviews.pdf" source/greenbook` (~20 min).
+1. The scanned text is in the repo: `books/greenbook/book_ocr.txt` (Green Book only; kept by Hitesh's choice). To regenerate it: `brew install poppler tesseract` then `tools/ocr.sh "books/greenbook/A Practical Guide to Quant Interviews.pdf" source/greenbook` (~20 min). Render a PDF page with `pdftoppm -f N -l N -r 80 -png <pdf> out` when the math matters.
 2. List the chapter's problems: `awk -F, '$2==3' books/greenbook/inventory.csv`. Read the OCR pages for the chapter (pages are marked `=== p-NNN.txt`; PDF page = book page + 16). OCR garbles equations: read the PDF page image when the math matters.
 3. Write one card per inventory row in `books/greenbook/questions/` following the card format above; re-derive every solution rather than trusting the book; add a `checks.mjs` entry for every numeric answer; add widgets in `src/widgets/` (register in `src/widgets/index.tsx`) where a simulation or visual genuinely helps.
 4. `npm run build` (builds content, verifies answers, type-checks, bundles), `npm run preview`, check phone width (390px) and dark mode, then commit and push to `main` (deploys automatically).
