@@ -5,7 +5,7 @@ type Out = number | { v: number; w?: number; x?: number; y?: number };
 type Exp = {
   title: string;
   what: string; // what the estimate measures
-  param?: { label: string; min: number; max: number; init: number };
+  param?: { label: string; min: number; max: number; init: number; step?: number };
   trial: (k: number) => Out;
   exact: (k: number) => number;
   /** 'mean' (default): Σv / Σw. 'corr': correlation of the (x, y) pairs. */
@@ -182,6 +182,52 @@ export const EXPERIMENTS: Record<string, Exp> = {
   },
 };
 
+const gauss = () => Math.sqrt(-2 * Math.log(1 - R())) * Math.cos(2 * Math.PI * R());
+// Black–Scholes call for the Monte Carlo pricing experiment
+const ncdf = (x: number) => { const t = 1 / (1 + 0.3275911 * Math.abs(x) / Math.SQRT2); const y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x / 2); return x >= 0 ? (1 + y) / 2 : (1 - y) / 2; };
+const bsCall = (S: number, K: number, T: number, r: number, v: number) => { const d1 = (Math.log(S / K) + (r + v * v / 2) * T) / (v * Math.sqrt(T)); return S * ncdf(d1) - K * Math.exp(-r * T) * ncdf(d1 - v * Math.sqrt(T)); };
+
+Object.assign(EXPERIMENTS, {
+  touch: {
+    title: 'Zero rates, stock at $1 (σ = 50%): does it ever touch H?', what: 'P(touch H) = fair price',
+    param: { label: 'H', min: 1.1, max: 5, init: 2, step: 0.1 },
+    trial: (H: number) => { const v = 0.5, dt = 0.004, lh = Math.log(H); let x = 0; for (let i = 0; i < 400000; i++) { x += -v * v / 2 * dt + v * Math.sqrt(dt) * gauss(); if (x >= lh) return 1; if (x < -9) return 0; } return 0; },
+    exact: (H: number) => 1 / H, maxBatch: 1000,
+    note: 'Paths that fall below $0.0001 are counted as never touching. Checking only at discrete times misses a few touches, so the estimate runs slightly low.',
+  },
+  reservoir: {
+    title: 'Pick one character from a stream (reservoir sampling)', what: 'P(the first character is picked)',
+    param: { label: 'stream length n', min: 2, max: 50, init: 10 },
+    trial: (n: number) => { let pick = 0; for (let i = 1; i < n; i++) if (R() < 1 / (i + 1)) pick = i; return +(pick === 0); },
+    exact: (n: number) => 1 / n,
+    note: 'Keep the i-th character with probability 1/i. Every position ends up with probability 1/n.',
+  },
+  coinp: {
+    title: 'Win with probability p using only a fair coin', what: 'P(win)',
+    param: { label: 'p (%)', min: 1, max: 99, init: 30 },
+    trial: (pc: number) => { let p = pc / 100; for (let i = 0; i < 60; i++) { p *= 2; const b = p >= 1 ? 1 : 0; p -= b; const s = R() < 0.5 ? 1 : 0; if (s < b) return 1; if (s > b) return 0; } return 0; },
+    exact: (pc: number) => pc / 100,
+    note: 'Toss i is compared with the i-th binary digit of p: below it you win, above it you lose, equal means toss again. Expected tosses: 2.',
+  },
+  pi: {
+    title: 'Throw darts at the unit square', what: '4 × fraction inside the quarter circle',
+    trial: () => { const x = R(), y = R(); const v = x * x + y * y <= 1 ? 4 : 0; return { v, x, y }; },
+    exact: () => Math.PI, scatter: { x: 'x', y: 'y' },
+    note: 'Error shrinks like 1/√n: 100× more darts for one more correct digit.',
+  },
+  bscall: {
+    title: 'Monte Carlo price of a call (S = K = 100, r = 5%, σ = 20%, T = 1)', what: 'discounted mean payoff',
+    trial: () => { const ST = 100 * Math.exp((0.05 - 0.02) + 0.2 * gauss()); return Math.exp(-0.05) * Math.max(ST - 100, 0); },
+    exact: () => bsCall(100, 100, 1, 0.05, 0.2), digits: 3,
+  },
+  rejection: {
+    title: 'Normal samples from exponentials (accept–reject)', what: 'acceptance rate',
+    trial: () => { const y = -Math.log(1 - R()); return +(R() <= Math.exp(-((y - 1) ** 2) / 2)); },
+    exact: () => Math.sqrt(Math.PI / (2 * Math.E)),
+    note: 'Propose |X| ~ Exp(1), accept with probability e^{−(y−1)²/2} = f(y)/(M g(y)) with M = √(2e/π) ≈ 1.32, then attach a random sign. Acceptance = 1/M ≈ 0.76.',
+  },
+} as Record<string, Exp>);
+
 const BATCHES = [100, 1000, 10000];
 
 export function MonteCarlo({ exp }: { exp: string }) {
@@ -223,7 +269,7 @@ export function MonteCarlo({ exp }: { exp: string }) {
       <h2>{E.title}</h2>
       {E.param && (
         <div class="controls">
-          <Slider id={`mc-${exp}`} label={E.param.label} value={k} min={E.param.min} max={E.param.max} step={1} onInput={(v) => { setK(v); reset(); }} />
+          <Slider id={`mc-${exp}`} label={E.param.label} value={k} min={E.param.min} max={E.param.max} step={E.param.step ?? 1} onInput={(v) => { setK(v); reset(); }} />
         </div>
       )}
       <div style="display:flex;gap:8px;flex-wrap:wrap">
