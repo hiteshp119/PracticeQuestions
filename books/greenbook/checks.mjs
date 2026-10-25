@@ -328,4 +328,25 @@ export default {
     const h = 1e-6, y = 0.075; if (Math.abs(price(y) - 100) > 1e-9) throw new Error(`price ${price(y)}`);
     return -(price(y + h) - price(y - h)) / (2 * h) / price(y);
   },
+
+  // ---- Chapter 7 ----
+  '7.08': () => { // run the pairwise min/max algorithm on random arrays and count comparisons
+    let worst = 0;
+    for (let t = 0; t < 200; t++) {
+      const a = Array.from({ length: 100 }, Math.random); let c = 0; const lt = (x, y) => { c++; return x < y; };
+      const lo = [], hi = []; for (let i = 0; i < 100; i += 2) { if (lt(a[i], a[i + 1])) { lo.push(a[i]); hi.push(a[i + 1]); } else { lo.push(a[i + 1]); hi.push(a[i]); } }
+      let mn = lo[0], mx = hi[0]; for (let i = 1; i < 50; i++) { if (lt(lo[i], mn)) mn = lo[i]; if (lt(mx, hi[i])) mx = hi[i]; }
+      if (mn !== Math.min(...a) || mx !== Math.max(...a)) throw new Error('wrong min/max'); worst = Math.max(worst, c);
+    }
+    return worst;
+  },
+  '7.11': () => { // count the calls the naive recursion makes, take the ratio T(n+1)/T(n) for a large n
+    const calls = (n) => { let c = 0; const f = (k) => { c++; return k <= 0 ? 0 : k === 1 ? 1 : f(k - 1) + f(k - 2); }; f(n); return c; };
+    return 100 * calls(27) / calls(26);
+  },
+  '7.12': () => { const A = [1, 2, -5, 4, -3, 2, 6, -5, -1]; let best = -Infinity; for (let i = 0; i < A.length; i++) { let s = 0; for (let j = i; j < A.length; j++) { s += A[j]; best = Math.max(best, s); } } return best; },
+  '7.16': () => { // simulate the 10-mouse test for every bottle: the dead mice must decode to that bottle
+    for (let bottle = 1; bottle <= 1000; bottle++) { let label = 0; for (let k = 1; k <= 10; k++) if ((bottle >> (k - 1)) & 1) label += 2 ** (k - 1); if (label !== bottle) throw new Error(`bottle ${bottle}`); }
+    return [6, 7, 9].reduce((s, k) => s + 2 ** (k - 1), 0);
+  },
 };
