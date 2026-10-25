@@ -29,15 +29,17 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 - Frontmatter: `id`, `title`, `section`, `page` (book page where the problem starts), `difficulty` 1–3, `techniques` (use the shared vocabulary below), `teaser` (one line for Today), `hints` (2, progressive), `answer` {`type`: number|expr|text, `value`, `vars` for expr, `display`}, `key` (one-line key idea), optional `widget` {`type`, `props`}.
 - Body sections: `## Problem`, `## Solution` (numbered, equation-first), `## Intuition` (**Naive approach / Why it fails / The trick**, optional **Going further**). Note book errors as **Book note.**
 - Math: `$…$` inline, `$$…$$` display; a literal dollar is `\$`. Quote YAML strings that contain `: ` or start with a quote.
-- Every `number` answer gets an independent check in `books/<book>/checks.mjs` (brute force or simulation); the build fails on mismatch.
-- Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Add new ones only when a technique really recurs (e.g. linearity of expectation, conditioning, first-step analysis, martingales, reflection principle).
+- Every `number` answer gets an independent check in `books/<book>/checks.mjs` (brute force or simulation); the build fails on mismatch. An `expr` answer may also have a check: it returns a function of the variables (e.g. a numeric derivative or an RK4 solve), compared with the card's formula at the sample points.
+- `expr` answers are compared at integers 3, 4, 5, 7, 10, 13 by default; set `answer.points` (e.g. `[0.2, 0.5, -0.7]`) when the formula is tiny or undefined there (e.g. $e^{-3x^2}$).
+- Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Added in Ch 3: take logs, change of variables, Taylor expansion, integration by parts, first-order conditions, geometric view, characteristic equation, matrix decomposition. Add new ones only when a technique really recurs (e.g. linearity of expectation, conditioning, first-step analysis, martingales, reflection principle).
 
-## Status (2026-10-24)
+## Status (2026-10-25)
 
-- **Done:** the full app (Today, Browse, flashcard decks, study pages, retest builder, notes, settings + Gist sync, offline service worker) and **Chapter 2: all 38 cards**, 13 widgets, 15 verified numeric answers. Tested at phone/laptop widths, light/dark, offline.
+- **Done:** the full app (Today, Browse, flashcard decks, study pages, retest builder, notes, settings + Gist sync, offline service worker), **Chapter 2: all 38 cards** (13 widgets) and **Chapter 3: all 24 cards** (9 more widgets in `src/widgets/calculus.tsx`, `linalg.tsx`; plot helpers in `plot.tsx`). 28 verified answers (25 numeric, 3 formula). Tested at phone/laptop widths, light/dark.
+- **Ch 3 book notes:** 3.08 (book's $E[X\mid X>0]$ forgets to divide by $P(X>0)$), 3.23 (leading-minor test is not enough for semidefinite), 3.01 (ambiguous notation).
 - **Pending on Hitesh:** repo Settings → Pages → Source = GitHub Actions, then run the "Deploy site" workflow. Live URL: https://hiteshp119.github.io/PracticeQuestions/
-- **Open question:** Hitesh uploaded the book PDF to `books/greenbook/` himself (public). Leave it unless he asks; removing it fully needs a history rewrite.
-- **Next:** Chapter 3 (Calculus and Linear Algebra, 24 cards, book pp. 33–58), then 4, 5, 6, 7 in order, one chapter per batch, Hitesh reviews after each.
+- **Open question:** Hitesh uploaded the book PDF and the OCR text (`books/greenbook/book_ocr.txt`) to the public repo himself. Leave them unless he asks; removing them fully needs a history rewrite.
+- **Next:** Chapter 4 (Probability Theory), then 5, 6, 7 in order, one chapter per batch, Hitesh reviews after each.
 
 ## How to write the next chapter
 

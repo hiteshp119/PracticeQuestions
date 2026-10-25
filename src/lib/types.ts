@@ -22,7 +22,7 @@ export interface QMeta {
 export interface QFull extends Omit<QMeta, 'widget'> {
   problem: string;
   hints: string[];
-  answer: { type: 'number' | 'expr' | 'text'; value: number | string | null; vars: string[] | null; tol: number | null; display: string };
+  answer: { type: 'number' | 'expr' | 'text'; value: number | string | null; vars: string[] | null; points: number[] | null; tol: number | null; display: string };
   key_idea: string;
   solution: string;
   intuition: string;

@@ -70,7 +70,13 @@ export function evaluate(expr: string, vars: Record<string, number> = {}): numbe
 
 export type CheckResult = 'right' | 'wrong' | 'invalid';
 
-export function check(input: string, type: string, value: number | string | null, vars: string[] | null, tol: number | null): CheckResult {
+/** Variable values at which two formulas are compared: integers ≥ 3 by default (so n/(n+1)-style answers are defined), or the card's own points. */
+export function samplePoints(vars: string[], points?: number[] | null): Record<string, number>[] {
+  const pts = points?.length ? points : [3, 4, 5, 7, 10, 13];
+  return pts.map((_, i) => Object.fromEntries(vars.map((v, j) => [v, pts[(i + j) % pts.length] + (points?.length ? 0 : j)])));
+}
+
+export function check(input: string, type: string, value: number | string | null, vars: string[] | null, tol: number | null, points?: number[] | null): CheckResult {
   if (!input.trim()) return 'invalid';
   try {
     if (type === 'number' && typeof value === 'number') {
@@ -79,10 +85,7 @@ export function check(input: string, type: string, value: number | string | null
       return Math.abs(x - value) <= t ? 'right' : 'wrong';
     }
     if (type === 'expr' && typeof value === 'string' && vars) {
-      // compare at several points (integers ≥ 3, so n/(n+1)-style answers are defined)
-      const pts = [3, 4, 5, 7, 10, 13];
-      for (let i = 0; i < pts.length; i++) {
-        const env = Object.fromEntries(vars.map((v, j) => [v, pts[(i + j) % pts.length] + j]));
+      for (const env of samplePoints(vars, points)) {
         const a = evaluate(input, env), b = evaluate(value, env);
         if (!isFinite(a) || Math.abs(a - b) > 1e-6 * Math.max(1, Math.abs(b))) return 'wrong';
       }
