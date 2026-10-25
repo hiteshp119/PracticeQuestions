@@ -31,15 +31,17 @@ Personal quant-interview practice site, built book by book. Owner: Hitesh (iPhon
 - Math: `$…$` inline, `$$…$$` display; a literal dollar is `\$`. Quote YAML strings that contain `: ` or start with a quote.
 - Every `number` answer gets an independent check in `books/<book>/checks.mjs` (brute force or simulation); the build fails on mismatch. An `expr` answer may also have a check: it returns a function of the variables (e.g. a numeric derivative or an RK4 solve), compared with the card's formula at the sample points.
 - `expr` answers are compared at integers 3, 4, 5, 7, 10, 13 by default; set `answer.points` (e.g. `[0.2, 0.5, -0.7]`) when the formula is tiny or undefined there (e.g. $e^{-3x^2}$).
-- Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Added in Ch 3: take logs, change of variables, Taylor expansion, integration by parts, first-order conditions, geometric view, characteristic equation, matrix decomposition. Add new ones only when a technique really recurs (e.g. linearity of expectation, conditioning, first-step analysis, martingales, reflection principle).
+- Technique vocabulary: simplify the problem, backward induction, induction, invariant, symmetry, pigeonhole, modular arithmetic, counting, sums & series, information / encoding, case analysis, protocol design, contradiction, fixed point, worst-case design, think out of the box. Added in Ch 3: take logs, change of variables, Taylor expansion, integration by parts, first-order conditions, geometric view, characteristic equation, matrix decomposition. Added in Ch 4–5: conditioning, first-step analysis, linearity of expectation, martingales, reflection principle, Ito's lemma. Add new ones only when a technique really recurs.
 
-## Status (2026-10-25)
+## Status (2026-10-26)
 
 - **Done:** the full app (Today, Browse, flashcard decks, study pages, retest builder, notes, settings + Gist sync, offline service worker), **Chapter 2: all 38 cards** (13 widgets) and **Chapter 3: all 24 cards** (9 more widgets in `src/widgets/calculus.tsx`, `linalg.tsx`; plot helpers in `plot.tsx`). 28 verified answers (25 numeric, 3 formula). Tested at phone/laptop widths, light/dark.
+- **Done:** **Chapter 4: all 46 cards** and **Chapter 5: all 24 cards** (5.11 is the DP concept card). Widgets: `montecarlo` (one widget, many experiments: pick with `props: { exp: <name> }`, add new ones to `EXPERIMENTS` in `src/widgets/montecarlo.tsx`), `birthday`, `randomwalk` (`probability.tsx`), `penney`, `worldseries`, `cardgame`, `brownian` (`stochastic.tsx`). 83 verified answers in total. Text answers (poker counts, roulette variants, ruin/coupon formulas) were brute-forced outside the build.
+- **Ch 5 book notes:** 5.07 (book's $E[N] = 1441$ should be $17\times83 = 1411$).
 - **Ch 3 book notes:** 3.08 (book's $E[X\mid X>0]$ forgets to divide by $P(X>0)$), 3.23 (leading-minor test is not enough for semidefinite), 3.01 (ambiguous notation).
 - **Pending on Hitesh:** repo Settings → Pages → Source = GitHub Actions, then run the "Deploy site" workflow. Live URL: https://hiteshp119.github.io/PracticeQuestions/
 - **Decided (2026-10-25):** the book PDF and the OCR text (`books/greenbook/book_ocr.txt`) stay in the repo for the Green Book, by Hitesh's choice. Don't flag or remove them; use `book_ocr.txt` as the source when writing chapters. Cards are still written in our own words.
-- **Next:** Chapter 4 (Probability Theory), then 5, 6, 7 in order, one chapter per batch, Hitesh reviews after each.
+- **Next:** Chapter 6 (Finance), then 7, one chapter per batch, Hitesh reviews after each.
 
 ## How to write the next chapter
 
